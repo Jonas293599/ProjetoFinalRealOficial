@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e30613;
+}
+
+.header-senai {
+    background-color: var(--cor-senai-vermelho); 
+    color: white; 
+    padding: 15px 30px;
+    margin-bottom: 30px; 
+}
+
+.header-senai .logo-text {
+    font-size: 2em; 
+    font-weight: 700; 
+    letter-spacing: 2px;
+    border: 4px solid white; 
+    padding: 5px 15px;
+}
+
+.conteiner{
+    background-color: #ffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.conteiner h2{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.input{
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input input{
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input input:focus{
+    border-color: #e30613;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.btn{
+    width: 100%;
+    background-color: #e30613;
+    color: #ffff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background-color: #a9040e;
+}
+
+.links{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.links a{
+    color: #e30613;
+    text-decoration: none;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}

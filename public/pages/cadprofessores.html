@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Professores - SENAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/cadprofessores.css">
+</head>
+<body>
+    <header class="header-senai">
+        <div class="logo-text">SENAI</div>
+        
+        <div class="nav-bar">
+            <ul>
+                <li>
+                    <a href="/public/pages/gestaodecadastros.html">Gestão de Cadastro</a>
+                </li>
+                <li>
+                    <a href="/public/pages/cadambientes.html">Cadastro de Ambiente</a>
+                </li>
+                <li>
+                    <a href="/public/pages/calendarioletivo.html">Calendario Letivo</a>
+                </li>
+                <li>
+                    <a href="/public/pages/calendarioletivo.html">Cadastro de Cursos</a>
+                </li>
+                <li>
+                    <a href="/public/pages/telageral.html">Relatorio Geral</a>
+                </li>
+            </ul>
+        </div>
+        <span></span>
+    </header>
+
+    <div class="container">
+        <h1>Gestão de Professores</h1>
+        <div class="grid-container">
+            <div class="card">
+                <h2>Novo Professor</h2>
+                <div class="form-group">
+                    <label for="prof-nome">Nome do Professor</label>
+                    <input type="text" id="prof-nome" placeholder="Ex: G. MOISÉS" required>
+                </div>
+                <div class="form-group">
+                    <label for="prof-area">Área Principal</label>
+                    <select id="prof-area" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="prof-folga">Dia de Folga</label>
+                    <select id="prof-folga" required>
+                        <option value="Segunda-feira">Segunda-feira</option>
+                        <option value="Terça-feira">Terça-feira</option>
+                        <option value="Quarta-feira">Quarta-feira</option>
+                        <option value="Quinta-feira">Quinta-feira</option>
+                        <option value="Sexta-feira">Sexta-feira</option>
+                        <option value="Sábado">Sábado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Horário de Trabalho</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="time" id="prof-inicio" required>
+                        <span>até</span>
+                        <input type="time" id="prof-fim" required>
+                    </div>
+                </div>
+                <button id="add-prof" class="btn btn-primary">Salvar Professor</button>
+            </div>
+
+            <div class="card">
+                <h2>Professores Cadastrados</h2>
+                <ul id="prof-list" class="item-list">
+                    <li class="list-header">
+                        <span>Nome</span>
+                        <span>Área</span>
+                        <span>Folga</span>
+                        <span>Horário</span>
+                        <span>Ação</span>
+                    </li>
+                    <!-- Itens da lista serão inseridos aqui -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+ <script src="../js/cadprofessores.js"></script>
+
+</body>
+</html>
+

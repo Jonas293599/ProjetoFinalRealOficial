@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão do Calendário Letivo - SENAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/calendarioletivo.css">
+</head>
+<body>
+    <header class="header-senai">
+        <div class="logo-text">SENAI</div>
+
+          <div class="nav-bar">
+            <ul>
+                <li>
+                    <a href="/public/pages/gestaodecadastros.html">Gestão de Cadastro</a>
+                </li>
+                <li>
+                    <a href="/public/pages/cadambientes.html">Cadastro de Ambiente</a>
+                </li>
+                <li>
+                    <a href="/public/pages/cadprofessores.html">Cadastro de Professores</a>
+                </li>
+                <li>
+                    <a href="/public/pages/cadcursos.html">Cadastro de Cursos</a>
+                </li>
+                  <li>
+                    <a href="/public/pages/telageral.html">Relatorio Geral</a>
+                </li>
+            </ul>
+        </div>
+        <span></span>
+    </header>
+
+
+    <div class="container">
+        <h1>Gestão do Calendário Letivo</h1>
+        <div class="grid-container">
+            <div class="card">
+                <h2>Calendário</h2>
+                <div class="calendar-controls">
+                    <button id="prev-month">&lt;</button>
+                    <span id="month-year"></span>
+                    <button id="next-month">&gt;</button>
+                </div>
+                <div class="calendar">
+                    <div class="calendar-header">Dom</div><div class="calendar-header">Seg</div><div class="calendar-header">Ter</div>
+                    <div class="calendar-header">Qua</div><div class="calendar-header">Qui</div><div class="calendar-header">Sex</div>
+                    <div class="calendar-header">Sáb</div>
+                </div>
+                <div class="calendar" id="calendar-body"></div>
+            </div>
+
+            <div class="card">
+                <h2>Marcar Data</h2>
+                <div class="form-group">
+                    <label for="event-start-date">Data de Início</label>
+                    <input type="date" id="event-start-date" required>
+                </div>
+                 <div class="form-group">
+                    <label for="event-end-date">Data de Fim (Opcional)</label>
+                    <input type="date" id="event-end-date">
+                </div>
+                <div class="form-group">
+                    <label for="event-type">Tipo de Data</label>
+                    <select id="event-type" required>
+                        <option value="nao-letivo">Não Letivo (Feriado, Recesso, Férias, Emenda)</option>
+                        <option value="reposicao">Reposição de Aula</option>
+                        <option value="comemorativo">Data Comemorativa</option>
+                        <option value="reuniao">Reunião</option>
+                        <option value="formatura">Formatura</option>
+                        <option value="eventos">Eventos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Descrição</label>
+                    <input type="text" id="event-description" placeholder="Ex: Semana de Tecnologia" required>
+                </div>
+                <div class="form-buttons">
+                    <button id="add-event" class="btn btn-primary">Salvar Data</button>
+                    <button type="button" id="cancel-edit" class="btn btn-secondary" style="display: none;">Cancelar</button>
+                </div>
+                <hr style="margin: 20px 0;">
+                <h2>Datas Marcadas</h2>
+                <ul id="event-list" class="item-list">
+                    <!-- Eventos salvos serão listados aqui -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+ <script src="../js/calendarioletivo.js"></script>
+
+</body>
+</html>
+

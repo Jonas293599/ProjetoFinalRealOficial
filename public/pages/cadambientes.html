@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Ambientes - SENAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/cadambientes.css">
+</head>
+<body>
+    <header class="header-senai">
+        <div class="logo-text">SENAI</div>
+
+          <div class="nav-bar">
+            <ul>
+                <li>
+                    <a href="/public/pages/gestaodecadastros.html">Gestão de Cadastro</a>
+                </li>
+                <li>
+                    <a href="/public/pages/cadprofessores.html">Cadastro de Professores</a>
+                </li>
+                <li>
+                    <a href="/public/pages/calendarioletivo.html">Calendario Letivo</a>
+                </li>
+                <li>
+                    <a href="/public/pages/cadcursos.html">Cadastro de Cursos</a>
+                </li>
+                <li>
+                    <a href="/public/pages/telageral.html">Relatorio Geral</a>
+                </li>
+            </ul>
+        </div>
+        <span></span> 
+    </header>
+
+    <div class="container">
+        <h1>Gestão de Ambientes</h1>
+        <div class="grid-container">
+            <div class="card">
+                <h2>Novo Ambiente</h2>
+                <div class="form-group">
+                    <label for="ambiente-area">Área Principal</label>
+                    <select id="ambiente-area" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="ambiente-bloco">Bloco</label>
+                    <input type="text" id="ambiente-bloco" placeholder="Ex: Bloco C" required>
+                </div>
+                <div class="form-group">
+                    <label for="ambiente-andar">Andar</label>
+                    <input type="text" id="ambiente-andar" placeholder="Ex: 1º Andar" required>
+                </div>
+                <div class="form-group">
+                    <label for="ambiente-nome">Nome da Sala</label>
+                    <input type="text" id="ambiente-nome" placeholder="Ex: Laboratório C1" required>
+                </div>
+                <div class="form-group">
+                    <label for="ambiente-ocupacao">Ocupação Máxima</label>
+                    <input type="number" id="ambiente-ocupacao" placeholder="30" required>
+                </div>
+                <button id="add-ambiente" class="btn btn-primary ">Salvar Ambiente</button>
+            </div>
+
+            <div class="card">
+                <h2>Ambientes Cadastrados</h2>
+                <ul id="ambiente-list" class="item-list">
+                    <li class="list-header">
+                        <span>Área</span>
+                        <span>Bloco</span>
+                        <span>Andar</span>
+                        <span>Nome</span>
+                        <span>Ocup.</span>
+                        <span>Ação</span>
+                    </li>
+                    <!-- Itens da lista serão inseridos aqui -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+ <script src="../js/cadambientes.js"></script>
+</body>
+</html>
