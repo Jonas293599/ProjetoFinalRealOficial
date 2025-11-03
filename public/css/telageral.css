@@ -142,4 +142,7 @@ h2 {
     .header-senai{
         flex-wrap: wrap !important;
     }
+    .span-espaco{
+        display: none;
+    }
 }
