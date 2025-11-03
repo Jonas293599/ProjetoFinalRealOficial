@@ -13,6 +13,8 @@ body {
     color: var(--cor-texto);
     margin: 0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-senai {
@@ -124,11 +126,11 @@ h2 {
 @media only screen and (max-width: 600px){
     .nav-menu{
         display: flex !important;
-        background-color: none;
         width: 40px;
         height: 30px;
         flex-wrap: wrap;
         align-content: space-between;
+        cursor: pointer;
     }
     .nav-menu .barra-menu1, .barra-menu2, .barra-menu3{
         height: 7px;
@@ -144,5 +146,24 @@ h2 {
     }
     .span-espaco{
         display: none;
+    }
+    .container-menu{
+        height: 100vh;
+        width: 50vw;
+        display: block !important;
+        justify-content: flex-end;
+        background-color: #e30613;
+        position: fixed;
+        top: 104px;
+        right: -50vw;
+        /* right: 20px; */
+    }
+    .container-menu ul{
+        display: flex;
+        flex-direction: column;
+        transition: all 1s;
+    }
+    .nav-menu:hover .container-menu{
+        
     }
 }
