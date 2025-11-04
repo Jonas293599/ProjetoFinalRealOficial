@@ -1,41 +1,15 @@
-type="module"
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-    let db, auth;
-    let appId, userId;
-    let disciplinasDoCurso = []; // Array temporário para as disciplinas do curso a ser criado
-
-    try {
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const app = initializeApp(firebaseConfig);
-        db = getFirestore(app);
-        auth = getAuth(app);
-        
-        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-            await signInWithCustomToken(auth, __initial_auth_token);
-        } else {
-            await signInAnonymously(auth);
+ // --- Lógica de adicionar area (NOME, COR)---
+    document.getElementById('add-area').addEventListener('click', () => {
+        const areaNome = document.getElementById('area-nome');
+        const area = areaNome.value;
+        const areaColor = document.getElementById('area-cor')
+        const color = areaColor.value;
+        if(area){
+            console.log("Nome: " + area + "\nCor: " + color);
         }
-
-        appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        userId = auth.currentUser.uid;
-        console.log("Firebase ready!");
-
-        // Inicia os cadastros simples
-        setupCrud('area', 'areas', ['Nome', 'Cor'], (item) => `<span><span class="color-dot" style="background-color: ${item.cor};"></span>${item.nome}</span>`);
-        
-        // Cadastros que populam outros selects
-        setupDisciplineCrud();
-        setupCourseCrud();
-        loadAreasIntoCourseForm();
+    });
 
 
-    } catch (error) {
-        console.error("Error initializing Firebase:", error);
-        alert("Não foi possível conectar à base de dados. As funcionalidades de cadastro estão desativadas.");
-    }
 
     // --- Lógica do Builder de Curso ---
     document.getElementById('add-disciplina-curso').addEventListener('click', () => {

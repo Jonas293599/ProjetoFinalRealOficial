@@ -1,4 +1,5 @@
 import express from 'express';
+import mysql from 'mysql2';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -15,6 +16,22 @@ import disciplinaRoutes from './routes/disciplinaRoutes.js';
 // Configuração inicial do Express
 const app = express();
 const PORT = 3001;
+
+// conectando e configurando o banco de dados
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',         // Usuário do MySQL (padrão é 'root')
+  password: '',         // Senha do MySQL (padrão é vazio)
+  database: 'cronograma_senai' // Nome do banco de dados criado
+});
+
+db.connect((err) => {
+    if(err){
+        console.error('Erro ao conetar ao banco de dados: ', err.stack);
+        return;
+    }
+    console.log('Conectando ao banco de dados como ID ' + db.threadId);
+});
 
 // Permite que o servidor entenda JSON no corpo das requisições
 app.use(express.json());
