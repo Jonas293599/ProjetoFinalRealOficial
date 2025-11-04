@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    //aqui é o header
+
     const header = document.querySelector('header');
     const style = document.querySelector('style');
     const css = `:root {
@@ -70,7 +72,7 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 80vw;
     max-width: 1200px;
     margin: auto;
 }
@@ -127,6 +129,11 @@ h2 {
 }
 
 @media only screen and (max-width: 600px){
+
+    .header-senai{
+        width: 80vw;
+        position: fixed;
+    }
     .nav-menu{
         display: flex !important;
         width: 40px;
@@ -134,6 +141,10 @@ h2 {
         flex-wrap: wrap;
         align-content: space-between;
         cursor: pointer;
+    }
+    .nav-menu:hover{
+        background-color: rgba(0, 0, 0, 0.301);
+        transition: all 0.2s;
     }
     .nav-menu .barra-menu1, .barra-menu2, .barra-menu3{
         height: 7px;
@@ -159,7 +170,6 @@ h2 {
         position: fixed;
         top: 104px;
         right: -50vw;
-        z-index: 10;
         transition: right 0.1s;
     }
     .container-menu ul{
@@ -179,15 +189,20 @@ h2 {
         display: flex;
         justify-content: flex-end;
     }
+    .container-menu ul li a:hover{
+        transform: scale(1.02);
+        transition: all 0.5s;
+    }
 }`
     if (header) {
         header.innerHTML = `<div class="logo-text">SENAI</div>
             <div class="nav-bar">
                 <ul>
-                    <li><a href="/public/pages/cadprofessores.html">Cadastro de Professores</a></li>
-                    <li><a href="/public/pages/cadambientes.html">Cadastro de Ambiente</a></li>
-                    <li><a href="/public/pages/calendarioletivo.html">Calendário Letivo</a></li>
-                    <li><a href="/public/pages/cadcursos.html">Cadastro de Cursos</a></li>
+                    <li><a href="/pages/cadprofessores.html">Cadastro de Professores</a></li>
+                    <li><a href="/pages/cadambientes.html">Cadastro de Ambiente</a></li>
+                    <li><a href="/pages/calendarioletivo.html">Calendário Letivo</a></li>
+                    <li><a href="/pages/gestaodecadastros.html">Cadastro de Cursos</a></li>
+                    <li><a href="/pages/telageral.html">Relatório Geral</a></li>
                 </ul>
             </div>
             <div class="nav-menu" style="display: none;">
@@ -197,19 +212,43 @@ h2 {
             </div>
             <span class="span-espaco"></span>
         `;
-        
+
     }
     style.innerHTML = css;
     document.head.appendChild(style);
 
+    //aqui é a manipulacao do css do menu
+
     const navMenu = document.querySelector('.nav-menu');
-        const containerMenu = document.querySelector('.container-menu')
-        
-        navMenu.addEventListener('click', () => {
-            if(containerMenu.style.right != '20px'){
-                containerMenu.style.right = '20px';
-            }else{
-                containerMenu.style.right = '-50vw'
-            }
-        });
+    const containerMenu = document.querySelector('.container-menu')
+
+    navMenu.addEventListener('click', () => {
+        if (containerMenu.style.right != '20px') {
+            containerMenu.style.right = '20px';
+        } else {
+            containerMenu.style.right = '-50vw'
+        }
+    });
+
+    //aqui é a aplicação do menu no html
+
+    if(containerMenu){
+        containerMenu.innerHTML = `<ul>
+            <li>
+                <a href="/pages/cadprofessores.html">Cadastro de Professores</a>
+            </li>
+            <li>
+                <a href="/pages/cadambientes.html">Cadastro de Ambiente</a>
+            </li>
+            <li>
+                <a href="/pages/calendarioletivo.html">Calendario Letivo</a>
+            </li>
+            <li>
+                <a href="/pages/gestaodecadastros.html">Cadastro de Cursos</a>
+            </li>
+            <li>
+                <a href="/pages/telageral.html">Relatório Geral</a>
+            </li>
+        </ul>`
+    }
 });

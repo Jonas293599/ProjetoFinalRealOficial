@@ -93,10 +93,12 @@ h2 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+.flex-container {
+    display: flex;
     gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .form-group {

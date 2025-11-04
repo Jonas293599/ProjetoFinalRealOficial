@@ -158,11 +158,13 @@
      border: 1px solid var(--cor-borda);
  }
 
- .grid-container {
-     display: grid;
-     grid-template-columns: 1.5fr 1fr;
-     gap: 30px;
- }
+.flex-container {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
  .form-group {
      margin-bottom: 15px;
