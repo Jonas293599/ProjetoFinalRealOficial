@@ -3,21 +3,26 @@ import mysql from 'mysql2/promise';
 
 // A função 'pool' cria uma piscina de conexões, o que é mais eficiente
 // para gerir várias conexões simultâneas ao banco de dados.
-const pool = mysql.createPool({
-    host: 'localhost',       // Endereço do seu servidor MySQL (geralmente localhost)
-    user: 'root',            // O seu nome de utilizador do MySQL
-    password: '',   // A sua senha do MySQL
-    database: 'cronograma_senai', // O nome do banco de dados que irá criar
+// conectando e configurando o banco de dados
+function iniciarBancoDeDados() {
+  const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'cronograma_senai',
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 10,   // número máximo de conexões simultâneas
     queueLimit: 0
-});
+  });
 
+  console.log("✅ Pool de conexões MySQL criado com sucesso.");
+  return pool;
+}
 // Mensagem de sucesso para saber que a ligação foi bem-sucedida
 console.log("Conexão com o banco de dados MySQL estabelecida com sucesso.");
 
 // Exportamos a 'pool' para que os nossos Models a possam usar
-export default pool;
+export default iniciarBancoDeDados();
 
 
 //Codigo do banco de dados

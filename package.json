@@ -1,7 +1,6 @@
 {
   "name": "projeto-mvc",
   "dependencies": {
-    "type": "module",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
@@ -27,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/Jonas293599/ProjetoFinalRealOficial/issues"
   },
-  "homepage": "https://github.com/Jonas293599/ProjetoFinalRealOficial#readme"
+  "homepage": "https://github.com/Jonas293599/ProjetoFinalRealOficial#readme",
+  "type": "module"
 }

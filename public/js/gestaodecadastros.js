@@ -1,12 +1,13 @@
+import Area from '../../controllers/ambienteController.js';
  // --- Lógica de adicionar area (NOME, COR)---
     document.getElementById('add-area').addEventListener('click', () => {
-        const areaNome = document.getElementById('area-nome');
-        const area = areaNome.value;
-        const areaColor = document.getElementById('area-cor')
-        const color = areaColor.value;
-        if(area){
-            console.log("Nome: " + area + "\nCor: " + color);
-        }
+        const areaNome = document.getElementById('area-nome').value;
+        const areaColor = document.getElementById('area-cor').value;
+        if(areaNome){
+            console.log("Nome: " + areaNome + "\nCor: " + areaColor);
+            alert(`Área ${areaNome} cadastrado com sucesso.`);
+        };
+        Area.createArea()
     });
 
 
