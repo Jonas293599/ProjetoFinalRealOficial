@@ -1,5 +1,6 @@
 import pool from '../config/db.js';
 
+
 const Ambiente = {
     findAll: async () => {
         const query = `

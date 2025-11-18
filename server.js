@@ -10,9 +10,9 @@ import ambienteRoutes from './routes/ambienteRoutes.js';
 import cursoRoutes from './routes/cursoRoutes.js';
 import areaRoutes from './routes/areaRoutes.js';
 import disciplinaRoutes from './routes/disciplinaRoutes.js';
-
+import userLoginRoutes from './routes/userLoginRoutes.js';
 const app = express();
-const PORT = 3001;
+export const PORT = 3000;
 const telaLogin = "/pages/telalogin.html";
 
 // Middleware
@@ -24,6 +24,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // --- Rotas da API ---
+app.use('/api/users', userLoginRoutes);
 app.use('/api/calendario', calendarioRoutes);
 app.use('/api/professores', professorRoutes);
 app.use('/api/ambientes', ambienteRoutes);
