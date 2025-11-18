@@ -1,44 +1,43 @@
-const loginForm = document.getElementById('loginForm');
+const loginForm = document.getElementById('RegisterForm');
 
 loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     const email = document.getElementById('emailInput').value;
     const senha = document.getElementById('senhaInput').value;
-    const dadosLogin = {
+    const nome = document.getElementById('nomeInput').value;
+    const dadosResgistro = {
         email: email,
-        senha: senha
+        senha: senha,
+        nome: nome
     };
-    console.log("Dados capturados:", dadosLogin);
-    enviarDadosLogin(dadosLogin);
+    console.log("Dados capturados:", dadosResgistro);
+    enviarDadosRegistro(dadosResgistro);
 });
 
 /**
  * Função assíncrona para enviar os dados para o endpoint de login.
- * @param {object} dados - Objeto contendo email e senha.
+ * @param {object} dados - Objeto contendo email, senha e nome.
  */
-async function enviarDadosLogin(dados) {
+async function enviarDadosRegistro(dados) {
     var mensagemErroElemento;
     mensagemErroElemento = ' '; // Limpa mensagens anteriores
 
     try {
-        const response = await fetch('/login', {
-    method: 'POST', // Deve ser POST, não GET
-    headers: {
-        'Content-Type': 'application/json' // OBRIGATÓRIO!
-    },
-    body: JSON.stringify({ 
-        email: 'exemplo@teste.com', 
-        senha: '123' 
-    })
-});
+        const response = await fetch('http://localhost:3000/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dados)
+        });
 
         // Verifica se a resposta foi bem-sucedida
         if (response.ok) {
             const resultado = await response.json();
-            alert(`Login bem-sucedido! Bem-vindo(a), ${resultado.nome || dados.email}!`);
+            alert(`Registro bem-sucedido! ${resultado.nome || dados.email}!`);
             // Redirecionando o usuario
-            window.location.href = 'telageral.html'; 
+            window.location.href = 'telalogin.html'; 
         } else {
             // Lida com erros (401 Unauthorized, 400 Bad Request, etc.)
             const erro = await response.json();
